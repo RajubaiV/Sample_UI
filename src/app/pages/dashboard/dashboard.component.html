@@ -1,0 +1,61 @@
+<div class="spaced-button">
+    <span>
+        <h1><b>Integration List</b>
+            <button mat-flat-button color="primary" style="margin-left: 950px;" (click)="addData()"> Create New
+            </button>
+        </h1>
+    </span>
+</div>
+<div class="spaced-list">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+        <ng-container matColumnDef="requestorId">
+            <th mat-header-cell *matHeaderCellDef>Requestor Id</th>
+            <td mat-cell *matCellDef="let element">{{element.requestorId}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="modeOfTransport">
+            <th mat-header-cell *matHeaderCellDef>Mode Of Transport</th>
+            <td mat-cell *matCellDef="let element">{{element.modeOfTransport}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="vesselCode">
+            <th mat-header-cell *matHeaderCellDef>Vessel Code</th>
+            <td mat-cell *matCellDef="let element">{{element.vesselCode}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="portCode">
+            <th mat-header-cell *matHeaderCellDef>Port Code</th>
+            <td mat-cell *matCellDef="let element">{{element.portCode}}</td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let element" [ngClass]="getStatusClass(element.stateId)">{{element.stateId}}</td>
+      </ng-container> -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+                <span [ngClass]="getStatusClass(element.stateId)">
+                    {{ element.stateId }}
+                </span>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button (click)="edit(element)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="delete(element)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

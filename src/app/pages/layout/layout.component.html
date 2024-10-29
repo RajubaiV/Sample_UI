@@ -1,0 +1,145 @@
+<form [formGroup]="voyageForm">
+    <div class="spaced-button">
+        <span>
+            <h1><b>Integration Details</b></h1>
+        </span>
+    </div>
+    <div class="form-container ">
+        <ng-container>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Requestor Id</mat-label>
+                    <input matInput formControlName="requestorId" maxlength="35">
+                    <!-- <input type="text" name="RequestorId" [(ngModel)]="voyageForm.RequestorId" placeholder="Username" required=""> -->
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Record Type</mat-label>
+                    <input matInput formControlName="recordType" maxlength="1">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Voyage Call Number</mat-label>
+                    <input matInput formControlName="voyageCallNumber" maxlength="35">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Mode Of Transport</mat-label>
+                    <input matInput formControlName="modeOfTransport" maxlength="4">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Type Of Transport Means</mat-label>
+                    <input matInput formControlName="typeOfTransportMeans" maxlength="2">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Identity Of Transport Means</mat-label>
+                    <input matInput formControlName="identityOfTransportMeans" maxlength="25">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Vessel Code</mat-label>
+                    <input matInput formControlName="vesselCode" maxlength="25">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Voyage Number</mat-label>
+                    <input matInput formControlName="voyageNumber" maxlength="10">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Type Of Vessel</mat-label>
+                    <input matInput formControlName="typeOfVessel" maxlength="8">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Purpose Of Call</mat-label>
+                    <input matInput formControlName="purposeOfCall">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Shipping Agent Code</mat-label>
+                    <input matInput formControlName="shippingAgentCode" maxlength="17">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Line Code</mat-label>
+                    <input matInput formControlName="lineCode" maxlength="17">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Terminal Operator Code</mat-label>
+                    <input matInput formControlName="terminalOperatorCode" maxlength="17">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Port Code</mat-label>
+                    <input matInput formControlName="portCode" maxlength="6">
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Expected Date and Time of Arrival</mat-label>
+                    <input matInput [matDatepicker]="arrivalPicker" formControlName="expectedDateTimeOfArrival"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="arrivalPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #arrivalPicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Expected Date Time Of Departure</mat-label>
+                    <input matInput [matDatepicker]="departurePicker" formControlName="expectedDateTimeOfDeparture"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="departurePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #departurePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Service Name</mat-label>
+                    <input matInput formControlName="serviceName" maxlength="10">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Allotment Date</mat-label>
+                    <input matInput [matDatepicker]="allotmentPicker" formControlName="allotmentDate"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="allotmentPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #allotmentPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width" *ngIf="this.acksate">
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Manifest Number Or Rotation Number</mat-label>
+                    <input matInput formControlName="manifestNumberOrRotationNumber">
+                </mat-form-field>
+                <mat-form-field class="form-field" appearance="fill">
+                    <mat-label>Manifest Date Or Rotation Date</mat-label>
+                    <input matInput [matDatepicker]="manifestPicker" formControlName="manifestDateOrRotationDate"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="manifestPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #manifestPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="form-row full-width" *ngIf="this.state">
+                <mat-form-field class="form-field-posted-date" appearance="fill">
+                    <mat-label>Request Posted Date</mat-label>
+                    <input matInput [matDatepicker]="requestPicker" formControlName="requestePostedDate"
+                        placeholder="Choose a date">
+                    <mat-datepicker-toggle matSuffix [for]="requestPicker"></mat-datepicker-toggle>
+                    <mat-datepicker #requestPicker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </ng-container>
+    </div>
+    <ng-container>
+        <div class="spaced-button" style="margin-left: 680px;" *ngIf="isCreate">
+            <button mat-raised-button color="primary" type="create" (click)="onCreate('Created')">Create</button>
+        </div>
+        <div class="spaced-button" style="margin-left: 680px;" *ngIf="isSumbit">
+            <button mat-raised-button color="primary" type="save" (click)="onCreate('Submitted')">Sumbit</button>
+        </div>
+        <div class="spaced-button" style="margin-left: 630px;" *ngIf="isAcknowledge">
+            <button mat-raised-button color="primary" type="save"
+                (click)="onCreate('Acknowledged')">Acknowledge</button>
+        </div>
+    </ng-container>
+</form>

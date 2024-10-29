@@ -1,0 +1,41 @@
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.form-field {
+    flex: 2;
+}
+
+.form-field-posted-date {
+    width: 49%;
+}
+
+.full-width .form-field {
+    width: 50%;
+}
+
+.full-width-with-margin {
+    width: calc(100% - 20px);
+    margin-left: 20px;
+}
+
+.form-container {
+    padding: 0 20px;
+}
+
+.spaced-button {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.mat-dialog-content {
+    max-height: 80vh;
+    /* Adjust as necessary */
+    overflow-y: auto;
+    /* Enables vertical scrolling */
+}
